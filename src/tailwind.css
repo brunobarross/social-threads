@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button.primary {
+    border: 1px solid rgb(114, 114, 114);
+    background-color: transparent;
+    padding: 0.4375rem;
+    margin: 0.9375rem 0;
+    border-radius: .4375rem;
+    color: rgb(250, 250, 250);
+    font-size: .8125rem;
+    font-weight: bold;
+    width: 100%;
+  }
+}
+
+@layer components{
+  .write-icon{
+    fill: rgb(250, 250, 250);
+    height: 2.5rem;
+
+
+
+  }
+}
+
+@layer components{
+
+  .feed-card {
+    border-bottom: 1px solid rgb(144, 144, 144);
+    padding: 0.625rem 0;
+  }
+  
+  .feed-card .text-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .feed-card .img-container {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .feed-card .img-container img {
+    height: 110%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .feed-card .icons {
+    display: flex;
+    align-items: center;
+  }
+  .feed-card .icons svg {
+    width: 2rem;
+    height: 1.25rem;
+    padding: 0 0.3125rem;
+  }
+  
+}

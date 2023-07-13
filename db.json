@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "username": "Code with Altamiro Bruno",
+      "handle": "altamirobruno",
+      "bio": "Software Engineer | Front-end Developer👨‍💻",
+      "link": "https://www.linkedin.com/in/altamirobruno/",
+      "img": "https://images.pexels.com/photos/17324222/pexels-photo-17324222/free-photo-of-adulto-arquitetura-garoto-menino.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "instagram_url": "https://www.instagram.com/brunobarros18/",
+      "followers": [
+        {
+          "user_uuid": "53051b0d-dccd-42dc-b24d-5a4a482cb2c9"
+        },
+        {
+          "user_uuid": "ec49178f-6e3c-4d15-be5e-6834f5f750b7"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "user_uuid": "53051b0d-dccd-42dc-b24d-5a4a482cb2c9",
+      "username": "Bob Burguers",
+      "handle": "heybobburguers",
+      "bio": " You store my burgers, I store your data",
+      "link": "https://www.youtube.com/channel/UC2KfmYEM4KCuA1ZurravgYw",
+      "img": "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "instagram_url": "https://www.instagram.com/bobburguers/",
+      "followers": [
+        {
+          "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a9"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user_uuid": "ec49178f-6e3c-4d15-be5e-6834f5f750b7",
+      "username": "La Coturera",
+      "handle": "costurera",
+      "bio": "Costura y diseño de ropa para niños y adultos",
+      "link": "https://www.youtube.com/channel/UC2KfmYEM4KCuA1ZurravgYw",
+      "img": "https://images.pexels.com/photos/4614227/pexels-photo-4614227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "instagram_url": "https://www.instagram.com/costurera30/",
+      "followers": [
+        {
+          "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a"
+        }
+      ]
+    }
+  ],
+  "threads": [
+    {
+      "id": 0,
+      "timestamp": "Wed Jul 12 2023 20:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Hey, how are you?",
+      "likes": [
+        {
+          "user_uuid": "53051b0d-dccd-42dc-b24d-5a4a482cb2c9"
+        },
+        {
+          "user_uuid": "ec49178f-6e3c-4d15-be5e-6834f5f750b7"
+        },
+        {
+          "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "timestamp": "Wed Jul 11 2023 19:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Hello World!",
+      "likes": [
+        {
+          "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "timestamp": "Wed Jul 12 2023 20:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "ec49178f-6e3c-4d15-be5e-6834f5f750b7",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "I'm tired of this language, man!",
+      "likes": []
+    },
+    {
+      "id": 3,
+      "timestamp": "Wed Jul 12 2023 23:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "thread_to": null,
+      "reply_to": null,
+      "text": "Thanks for the help, girl!",
+      "likes": []
+    },
+    {
+      "id": 4,
+      "timestamp": "Wed Jul 12 2023 23:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "thread_to": "ec49178f-6e3c-4d15-be5e-6834f5f750b7",
+      "reply_to": 3,
+      "text": "I'm glad to help you, girl",
+      "likes": []
+    }
+  ]
+}
