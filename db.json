@@ -98,7 +98,11 @@
       "thread_to": null,
       "reply_to": null,
       "text": "Thanks for the help, girl!",
-      "likes": []
+      "likes": [
+        {
+          "user_uuid": "2f0ca549-999e-4f3a-bd0b-92025db11f8a"
+        }
+      ]
     },
     {
       "id": 4,
@@ -108,6 +112,24 @@
       "reply_to": 3,
       "text": "I'm glad to help you, girl",
       "likes": []
+    },
+    {
+      "id": 5,
+      "timestamp": "Wed Jul 12 2023 21:56:46 GMT-0300 (Horário Padrão de Brasília)",
+      "thread_from": "ec49178f-6e3c-4d15-be5e-6834f5f750b7",
+      "thread_to": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "reply_to": 1,
+      "text": "Hii!",
+      "likes": []
+    },
+    {
+      "timestamp": "2023-07-14T14:16:33.156Z",
+      "thread_from": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "thread_to": "2f0ca549-999e-4f3a-bd0b-92025db11f8a",
+      "reply_to": null,
+      "text": "Olá",
+      "likes": [],
+      "id": 6
     }
   ]
 }

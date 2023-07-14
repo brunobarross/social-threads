@@ -3,13 +3,13 @@
     <div class="text-container">
       <div>
         <div class="img-container">
-          <img :src="user.img" alt="Profile avatar" />
+          <img :src="popUpFeedUser?.img" alt="Profile avatar" />
         </div>
         <div class="mt-2">
           <p>
-            <strong>{{ user.handle }}</strong>
+            <strong>{{ popUpFeedUser?.handle }}</strong>
           </p>
-          <p>{{ popUpFeedThread.text }}</p>
+          <p>{{ popUpFeedThread?.text }}</p>
         </div>
       </div>
       <p class="sub-text">{{ timePassed }}</p>
@@ -19,23 +19,31 @@
 
 <script setup>
 import { defineProps, computed } from "vue";
-import moment from 'moment'
+import {storeToRefs} from "pinia";
+import moment from "moment";
+import { onMounted } from "vue";
+import {usePopUpStore} from "../store/popup.store.js";
 
 
+const {getPopUpFeedUser} = usePopUpStore();
+
+const {popUpFeedUser} = storeToRefs(usePopUpStore());
 
 const props = defineProps({
   popUpFeedThread: {
     type: Object,
     required: true,
   },
-  user: {
-    type: Object,
-    required: true,
-  },
 });
+
+
 
 const timePassed = computed(() => {
   return moment().startOf("day").fromNow(props.popUpFeedThread.timestamp);
+});
+
+onMounted(async () => {
+  await getPopUpFeedUser(props.popUpFeedThread.thread_from);
 });
 </script>
 

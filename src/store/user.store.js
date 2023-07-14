@@ -8,6 +8,7 @@ export const useUserStore = defineStore('userStore', () => {
   const actualUser = ref(null)
 
 
+
   const getUser = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/users?user_uuid=${userId.value}`)
@@ -20,5 +21,8 @@ export const useUserStore = defineStore('userStore', () => {
 
 
   }
+
+
+
   return { userId, getUser, actualUser }
 })

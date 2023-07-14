@@ -1,12 +1,23 @@
 <template>
     <div>
         <p></p>
-        <input type="text" placeholder="What's on your mind?">
-        <button class="primary">Post</button>
+        <input type="text" placeholder="What's on your mind?" :model-value="text" @input="$emit('update:text', $event.target.value)">
+        <button class="primary" @click="$emit('post-thread')">Post</button>
     </div>
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
+
+const emit = defineEmits(['post-thread', 'update:text']);
+
+
+const props = defineProps({
+    text: {
+        type: String,
+        required: true,
+    },
+});
 
 </script>
 

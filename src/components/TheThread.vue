@@ -66,7 +66,7 @@
       </svg>
     </div>
     <p class="sub-text mt-2">
-      <span @click="handleClickOpenPopUp">X replies</span> •
+      <span @click="handleClickOpenPopUp">{{repliesLength}} replies</span> •
       <span>{{ thread.likes.length }} likes</span>
     </p>
   </article>
@@ -83,6 +83,8 @@ const { setIsOpenPopUp } = usePopUpStore();
 
 const {postThreadLike, setInterectedThread} = useThreadsStore();
 
+const {repliesLength}  = storeToRefs(useThreadsStore());
+
 
 const user = inject("user");
 
@@ -98,7 +100,6 @@ const props = defineProps({
 
 
 const handleClickPostLike = async (threadId) => {
-  console.log(threadId)
   await postThreadLike(threadId);
 };
 

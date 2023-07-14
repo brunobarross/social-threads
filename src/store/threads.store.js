@@ -7,12 +7,10 @@ export const useThreadsStore = defineStore('threadsStore', () => {
     const threads = ref(null);
     const { userId, actualUser } = storeToRefs(useUserStore())
     const viewThreadsFeed = ref(true);
-
     const filteredThreads = ref(null);
-
-    const interectedThread = ref(null)
-
-    const popUpFeedThreads = ref(null)
+    const interectedThread = ref(null);
+    const popUpFeedThreads = ref(null);
+    const repliesLength = ref(null);
 
     const getThreads = async () => {
 
@@ -67,8 +65,9 @@ export const useThreadsStore = defineStore('threadsStore', () => {
 
     const getReplies = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:3000/threads?reply_to=${interectedThread.value.id}`)
+            const { data } = await axios.get(`http://localhost:3000/threads?reply_to=${interectedThread.value?.id}`)
             popUpFeedThreads.value = data
+            repliesLength.value = data.length
         }
         catch (error) {
             console.log(error)
@@ -76,6 +75,27 @@ export const useThreadsStore = defineStore('threadsStore', () => {
 
     }
 
+
+
+    const postThread = async (texto) => {
+        const objPost = {
+            timestamp: new Date(),
+            thread_from: actualUser.value.user_uuid,
+            thread_to: actualUser.value.user_uuid || null,
+            reply_to: interectedThread.value?.id || null,
+            text: texto,
+            likes: []
+        }
+        try {
+            const { data } = await axios.post(`http://localhost:3000/threads`, objPost)
+            await getThreads()
+            await getReplies()
+            return data
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
 
 
@@ -109,8 +129,16 @@ export const useThreadsStore = defineStore('threadsStore', () => {
 
     )
 
+    watch(
+        () => filteredThreads.value,
+        (v) => {
+            getReplies()
+        }
+
+    )
 
 
 
-    return { getThreads, threads, viewThreadsFeed, getThreads, filteredThreads, postThreadLike, setInterectedThread, popUpFeedThreads }
+
+    return { getThreads, threads, viewThreadsFeed, getThreads, filteredThreads, postThreadLike, setInterectedThread, popUpFeedThreads, postThread, repliesLength }
 })

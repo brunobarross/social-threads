@@ -5,27 +5,38 @@
       <ThePopUpThread
         v-for="popUpFeedThread in popUpFeedThreads"
         :key="popUpFeedThread.id"
-        :user="user"
         :popUpFeedThread="popUpFeedThread"
       />
     </template>
 
-    <TheThreadInputVue />
+    <TheThreadInputVue v-model:text="text" @post-thread="handleClickPost" />
   </div>
 </template>
 
 <script setup>
-import { defineEmits, inject } from "vue";
-import ThePopUpThread from "./ThePopUpThread.vue";
-import TheThreadInputVue from "./TheThreadInput.vue";
+import { defineEmits, inject, ref } from "vue";
 import { usePopUpStore } from "../store/popup.store.js";
 import { useThreadsStore } from "../store/threads.store";
 import { storeToRefs } from "pinia";
+import ThePopUpThread from "./ThePopUpThread.vue";
+import TheThreadInputVue from "./TheThreadInput.vue";
 
-const { popUpFeedThreads } = storeToRefs(useThreadsStore());
-
-const user = inject("user");
 const emits = defineEmits(["close-popup"]);
+
+const { popUpFeedThreads} = storeToRefs(useThreadsStore());
+
+const {setIsOpenPopUp} = usePopUpStore();
+
+const {postThread} = useThreadsStore();
+
+const text = ref('')
+
+
+const handleClickPost = async () => {
+  await postThread(text.value);
+  text.value = ''
+  setIsOpenPopUp(false)
+};
 </script>
 
 <style scoped>
